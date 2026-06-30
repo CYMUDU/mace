@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply transition-colors duration-200;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cyber-background text-cyber-text font-sans antialiased;
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 229, 255, 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 229, 255, 0.5);
+  }
+
+  /* Cyber Terminal Text */
+  .terminal-text {
+    @apply font-mono text-sm;
+    letter-spacing: 0.05em;
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    @apply shadow-glow-primary;
+  }
+
+  .glow-secondary {
+    @apply shadow-glow-secondary;
+  }
+
+  .glow-danger {
+    @apply shadow-glow-danger;
+  }
+
+  .glow-success {
+    @apply shadow-glow-success;
+  }
+
+  /* Grid Background */
+  .grid-background {
+    background-image:
+      linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Neon Border */
+  .neon-border {
+    @apply border border-cyber-borders;
+    box-shadow: inset 0 0 10px rgba(0, 229, 255, 0.1);
+  }
+
+  /* Card Base */
+  .card-base {
+    @apply bg-cyber-panels border border-cyber-borders rounded-lg;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.05);
+  }
+
+  /* Hover Effects */
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+
+  .hover-glow:hover {
+    @apply shadow-glow-primary;
+  }
+
+  /* Custom scrollable area */
+  .custom-scroll {
+    @apply overflow-y-auto overflow-x-hidden;
+  }
+}

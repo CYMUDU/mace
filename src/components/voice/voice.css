@@ -1,0 +1,219 @@
+/* ==========================================================================
+   M.A.C.E. AI CORE - Voice & Holographic Component Styling
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Core Holographic Engine (Globe Container)
+   -------------------------------------------------------------------------- */
+.voice-orb-container {
+  position: relative;
+  perspective: 1000px;
+  /* GPU Acceleration scoped specifically to the complex animated elements */
+  will-change: transform, filter;
+  transform-style: preserve-3d;
+}
+
+/* Ambient Core Aura */
+.voice-orb-container::before {
+  content: '';
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.15) 0%, transparent 65%);
+  border-radius: 50%; /* FIXED: Syntax error from 5/0% */
+  pointer-events: none;
+  filter: blur(25px);
+  animation: core-breathing 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  z-index: -1;
+}
+
+@keyframes core-breathing {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Audio Waveform Visualizer
+   -------------------------------------------------------------------------- */
+.voice-waveform {
+  filter: drop-shadow(0 0 12px rgba(0, 229, 255, 0.5));
+  will-change: contents;
+}
+
+.voice-waveform rect {
+  /* Fast, snappy response mimicking real-time frequency analysis */
+  transition: height 0.07s ease-out, opacity 0.07s ease-out;
+}
+
+/* --------------------------------------------------------------------------
+   Energy / Glow Effects
+   -------------------------------------------------------------------------- */
+.glow-primary {
+  filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.6));
+}
+
+.glow-secondary {
+  filter: drop-shadow(0 0 15px rgba(0, 163, 255, 0.5));
+}
+
+.glow-success {
+  filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.6));
+}
+
+/* --------------------------------------------------------------------------
+   M.A.C.E. Panel & HUD Styling
+   -------------------------------------------------------------------------- */
+.holographic {
+  background: linear-gradient(180deg, rgba(11, 17, 26, 0.7) 0%, rgba(4, 7, 13, 0.9) 100%);
+  border: 1px solid #12202D;
+  box-shadow: inset 0 0 25px rgba(0, 229, 255, 0.03);
+  position: relative;
+}
+
+.cyber-border {
+  border: 1px solid #12202D;
+  box-shadow: inset 0 0 15px rgba(0, 229, 255, 0.02), 0 0 10px rgba(0, 229, 255, 0.05);
+}
+
+/* --------------------------------------------------------------------------
+   OS-Level Keyframe Animations
+   -------------------------------------------------------------------------- */
+
+/* Target Lock / HUD Line Glow */
+@keyframes hud-glow-line {
+  0%, 100% {
+    opacity: 0.3;
+    box-shadow: 0 0 5px rgba(0, 229, 255, 0.2);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.8);
+  }
+}
+
+.glow-line {
+  animation: hud-glow-line 3s ease-in-out infinite;
+}
+
+/* Precision Scanner Line */
+@keyframes mace-scan-line {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+.scan-line {
+  animation: mace-scan-line 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  background: linear-gradient(to bottom, transparent, rgba(0, 229, 255, 0.5), transparent);
+}
+
+/* Radar Ping (Replaces generic ripple) */
+@keyframes radar-ping {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+    border-width: 2px;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+    border-width: 0px;
+  }
+}
+
+.ripple {
+  animation: radar-ping 2.5s cubic-bezier(0.1, 0.2, 0.8, 1) infinite;
+  border: solid rgba(0, 229, 255, 0.8);
+  border-radius: 50%;
+  background: transparent;
+  position: absolute;
+}
+
+/* Data Particle Drift (Replaces random float) */
+@keyframes data-drift {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  20% { opacity: 0.8; }
+  80% { opacity: 0.8; }
+  100% { transform: translateY(-40px) translateX(15px); opacity: 0; }
+}
+
+.particle {
+  animation: data-drift 8s linear infinite;
+  will-change: transform, opacity;
+}
+
+/* Holographic Globe Rotation */
+@keyframes rotate-mesh {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.rotate-mesh {
+  animation: rotate-mesh 45s linear infinite; /* Slowed down for majestic, premium feel */
+}
+
+/* Neural Network Node Pulse */
+@keyframes neural-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    filter: drop-shadow(0 0 2px rgba(0, 229, 255, 0));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.9));
+  }
+}
+
+.neural-connection {
+  animation: neural-pulse 2.5s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Globe Sizing (Maintained dominance)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .voice-orb-container {
+    width: 450px !important;
+    height: 450px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .voice-orb-container {
+    width: 350px !important;
+    height: 350px !important;
+  }
+
+  .voice-waveform {
+    width: 100% !important;
+    max-width: 400px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .voice-orb-container {
+    width: 280px !important;
+    height: 280px !important;
+  }
+
+  .voice-waveform {
+    width: 100% !important;
+    max-width: 280px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Hardware Acceleration / Progressive Enhancement
+   -------------------------------------------------------------------------- */
+@supports (-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px)) {
+  .holographic {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+}
