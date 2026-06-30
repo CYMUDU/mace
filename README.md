@@ -1,3 +1,6 @@
+> ⚠️ **Status: Under active development** — this project is still being built and may have incomplete features or breaking changes.
+
+
 # M.A.C.E. OS - Frontend Dashboard
 
 Multi-Platform Adaptive Control Engine Dashboard - A production-grade React frontend for the M.A.C.E. intelligence system.
