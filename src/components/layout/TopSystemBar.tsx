@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Wifi, Cpu, HardDrive, Zap, Clock, Power } from 'lucide-react'
+import { Clock, Power } from 'lucide-react'
 import { useAppStore } from '@store/appStore'
 import { useSystemMetrics } from '@hooks/useSystemMetrics'
 
@@ -49,41 +49,8 @@ export const TopSystemBar: React.FC<TopSystemBarProps> = ({ className = '' }) =>
             }}
           ></div>
         ))}
+     
       </div>
-
-      {/* Right Section - System Info */}
-      <div className="flex items-center gap-6">
-        {/* CPU */}
-        <div className="flex items-center gap-2">
-          <Cpu size={16} className="text-cyber-primary" />
-          <span className="text-xs font-mono text-cyber-muted">
-            CPU <span className="text-cyber-text font-semibold">{systemStatus.cpu}%</span>
-          </span>
-        </div>
-
-        {/* RAM */}
-        <div className="flex items-center gap-2">
-          <HardDrive size={16} className="text-cyber-primary" />
-          <span className="text-xs font-mono text-cyber-muted">
-            RAM <span className="text-cyber-text font-semibold">{systemStatus.ram}%</span>
-          </span>
-        </div>
-
-        {/* Network */}
-        <div className="flex items-center gap-2">
-          <Wifi size={16} className="text-cyber-primary" />
-          <span className="text-xs font-mono text-cyber-muted">
-            NET <span className="text-cyber-text font-semibold">{systemStatus.network}K/s</span>
-          </span>
-        </div>
-
-        {/* Battery */}
-        <div className="flex items-center gap-2">
-          <Zap size={16} className="text-cyber-primary" />
-          <span className="text-xs font-mono text-cyber-muted">
-            BAT <span className="text-cyber-text font-semibold">{systemStatus.battery}%</span>
-          </span>
-        </div>
 
         {/* Time & Date */}
         <div className="flex items-center gap-2">
@@ -99,6 +66,5 @@ export const TopSystemBar: React.FC<TopSystemBarProps> = ({ className = '' }) =>
           <Power size={16} className="text-cyber-primary" />
         </button>
       </div>
-    </div>
   )
 }
